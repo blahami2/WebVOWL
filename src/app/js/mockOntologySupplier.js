@@ -8,6 +8,14 @@ module.exports = function (loadOntologyFromText) {
     var mockOntologySupplier = {};
 
     mockOntologySupplier.load = function () {
+        idx = 2;
+        var project = {
+            id: "Project_#" + idx
+            , title: "Project_#" + idx
+            , description: "Description_#" + idx
+            , link: "Link_#" + idx
+        }
+
         var json = {
             _comment: "this is comment"
             , namespace: []
@@ -18,7 +26,7 @@ module.exports = function (loadOntologyFromText) {
                 }
                 , iri: "http://not.working.iri"
                 , version: "1.0"
-                , author: ["Michael Blaha", "Lukas Hruby", "Tester Testing"]
+                , author: ["Michael Blaha"]
                 , description: {
                     en: "This is english description"
                 }
@@ -33,10 +41,10 @@ module.exports = function (loadOntologyFromText) {
         };
 
         mockRelationSupplier = require("./mockRelationSupplier")();
-        relations = mockRelationSupplier.getProject();
+        relations = mockRelationSupplier.getProject(project);
 
         json.metrics = {
-            "classCount": relations.members.length + relations.cards.length + relations.spaces.length,
+            "classCount": 0,
             "datatypeCount": 0,
             "objectPropertyCount": 16,
             "datatypePropertyCount": 6,
@@ -45,112 +53,54 @@ module.exports = function (loadOntologyFromText) {
             "axiomCount": 158,
             "individualCount": 0
         };
+
         json.class = [];
         json.class.push({
-            id: "class_project" + relations.project.id,
+            id: "class_" + project.id,
             type: "owl:Class"
         });
-        for (i = 0; i < relations.members.length; i++) {
+        for (i = 0; i < relations.length; i++) {
             json.class.push({
-                id: "class_member" + relations.members[i].id,
-                type: "owl:Class"
-            });
-        }
-        for (i = 0; i < relations.cards.length; i++) {
-            json.class.push({
-                id: "class_card" + relations.cards[i].id,
-                type: "owl:Class"
-            });
-        }
-        for (i = 0; i < relations.spaces.length; i++) {
-            json.class.push({
-                id: "class_space" + relations.spaces[i].id,
+                id: "class_" + relations[i].relationEntity.name + relations[i].relationEntity.value.id,
                 type: "owl:Class"
             });
         }
         json.classAttribute = [];
         json.classAttribute.push({
-            id: "class_project" + relations.project.id,
-            label: relations.project.title,
-            comment: relations.project.description,
-            iri: relations.project.link
+            id: "class_" + project.id,
+            label: project.title,
+            comment: project.description,
+            iri: project.link
         });
-        for (i = 0; i < relations.members.length; i++) {
+        for (i = 0; i < relations.length; i++) {
             json.classAttribute.push({
-                id: "class_member" + relations.members[i].id,
-                label: relations.members[i].title,
-                comment: relations.members[i].description,
-                iri: relations.members[i].link
-            });
-        }
-        for (i = 0; i < relations.cards.length; i++) {
-            json.classAttribute.push({
-                id: "class_card" + relations.cards[i].id,
-                label: relations.cards[i].title,
-                comment: relations.cards[i].description,
-                iri: relations.cards[i].link
-            });
-        }
-        for (i = 0; i < relations.spaces.length; i++) {
-            json.classAttribute.push({
-                id: "class_space" + relations.spaces[i].id,
-                label: relations.spaces[i].title,
-                comment: relations.spaces[i].description,
-                iri: relations.spaces[i].link
+                id: "class_" + relations[i].relationEntity.name + relations[i].relationEntity.value.id,
+                label: relations[i].relationEntity.value.title,
+                comment: relations[i].relationEntity.value.description,
+                iri: relations[i].relationEntity.value.link
             });
         }
         json.datatype = [];
         json.datatypeAttribute = [];
         json.property = [];
-        for (i = 0; i < relations.members.length; i++) {
+        for (i = 0; i < relations.length; i++) {
             json.property.push({
-                id: "property_project_member" + relations.members[i].id,
-                type: "owl:objectProperty"
-            });
-        }
-        for (i = 0; i < relations.cards.length; i++) {
-            json.property.push({
-                id: "property_project_card" + relations.cards[i].id,
-                type: "owl:objectProperty"
-            });
-        }
-        for (i = 0; i < relations.spaces.length; i++) {
-            json.property.push({
-                id: "property_project_space" + relations.spaces[i].id,
+                id: "property_" + project.id + "_" + relations[i].relationEntity.name + relations[i].relationEntity.value.id,
                 type: "owl:objectProperty"
             });
         }
         json.propertyAttribute = [];
-        for (i = 0; i < relations.members.length; i++) {
+        for (i = 0; i < relations.length; i++) {
             json.propertyAttribute.push({
-                id: "property_project_member" + relations.members[i].id,
+                id: "property_" + project.id + "_" + relations[i].relationEntity.name + relations[i].relationEntity.value.id,
                 label: {
-                    "en": "hasMember"
+                    "en": relations[i].relationName
                 },
-                domain: "class_project" + relations.project.id,
-                range: "class_member" + relations.members[i].id
+                domain: "class_" + project.id,
+                range: "class_" + relations[i].relationEntity.name + relations[i].relationEntity.value.id
             });
         }
-        for (i = 0; i < relations.cards.length; i++) {
-            json.propertyAttribute.push({
-                id: "property_project_card" + relations.cards[i].id,
-                label: {
-                    "en": "hasCard"
-                },
-                domain: "class_project" + relations.project.id,
-                range: "class_card" + relations.cards[i].id
-            });
-        }
-        for (i = 0; i < relations.spaces.length; i++) {
-            json.propertyAttribute.push({
-                id: "property_project_space" + relations.spaces[i].id,
-                label: {
-                    "en": "belongsToSpace"
-                },
-                domain: "class_project" + relations.project.id,
-                range: "class_space" + relations.spaces[i].id
-            });
-        }
+//        alert(JSON.stringify(json));
         loadOntologyFromText(JSON.stringify(json), undefined);
     };
 

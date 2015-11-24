@@ -72,9 +72,9 @@ module.exports = function () {
 
     function loadOntologyFromText(jsonText, filename, alternativeFilename) {
         pauseMenu.reset();
-
         var data;
         if (jsonText) {
+            
             data = JSON.parse(jsonText);
 
             if (!filename) {
