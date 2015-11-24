@@ -1,0 +1,87 @@
+{
+    "_comment": "Created by me, hand-made",
+    "namespace": [],
+    "header": {
+        "languages": ["cz", "en"],
+        "title": {
+            "undefined": "My own ontology file"
+        },
+        "version": "1.0",
+        "author": ["Michael Blaha"],
+        "description": {
+            "undefined": "The Modular and Unified Tagging Ontology (MUTO) is an ontology for tagging and folksonomies. It is based on a thorough review of earlier tagging ontologies and unifies core concepts in one consistent schema. It supports different forms of tagging, such as common, semantic, group, private, and automatic tagging, and is easily extensible."
+        },
+        "seeAlso": ["http://purl.org/muto/core#"],
+        "issued": ["2011-11-16"],
+        "license": ["http://creativecommons.org/licenses/by/3.0/"],
+        "rdfsLabel": ["MUTO Core Ontology"],
+        "other": {
+            "depiction": [{
+                    "identifier": "depiction",
+                    "language": "undefined",
+                    "value": "http://purl.org/muto/core/muto-compact.png",
+                    "type": "label"
+                }, {
+                    "identifier": "depiction",
+                    "language": "undefined",
+                    "value": "http://purl.org/muto/core/muto-UML.png",
+                    "type": "label"
+                }],
+            "homepage": [{
+                    "identifier": "homepage",
+                    "language": "undefined",
+                    "value": "http://purl.org/muto",
+                    "type": "label"
+                }]
+        }
+    },
+    "metrics": {
+        "classCount": 7,
+        "datatypeCount": 6,
+        "objectPropertyCount": 16,
+        "datatypePropertyCount": 6,
+        "propertyCount": 22,
+        "nodeCount": 13,
+        "axiomCount": 158,
+        "individualCount": 0
+    },
+    "class": [
+        {
+            "id": "class_project1",
+            "type": "owl:Class"
+        }, {
+            "id": "class_member1",
+            "type": "owl:Class"
+        }
+    ],
+    "classAttribute": [
+        {
+            "id": "class_project1",
+            "label": {
+                "en": "Project",
+                "cz": "Projekt"
+            },
+            "comment": {
+                "en": "Test project class"
+            }
+        },
+        {
+            "id": "class_member1",
+            "label": {
+                "en": "Member",
+                "cz": "Clen"
+            },
+            "comment": {
+                "en": "Test member class"
+            }
+        }
+    ],
+    "datatype" : [
+    ],
+    "datatypeAttribute" : [
+    ],
+    "property" : [
+    ],
+    "propertyAttribute": [
+    ]
+}

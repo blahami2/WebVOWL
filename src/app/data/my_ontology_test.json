@@ -1,0 +1,614 @@
+{
+    "_comment": "Created by me, hand-made",
+    "namespace": [],
+    "header": {
+        "languages": ["cz", "en"],
+        "title": {
+            "undefined": "My own ontology file"
+        },
+        "version": "1.0",
+        "author": ["Michael Blaha"],
+        "description": {
+            "undefined": "The Modular and Unified Tagging Ontology (MUTO) is an ontology for tagging and folksonomies. It is based on a thorough review of earlier tagging ontologies and unifies core concepts in one consistent schema. It supports different forms of tagging, such as common, semantic, group, private, and automatic tagging, and is easily extensible."
+        },
+        "seeAlso": ["http://purl.org/muto/core#"],
+        "issued": ["2011-11-16"],
+        "license": ["http://creativecommons.org/licenses/by/3.0/"],
+        "rdfsLabel": ["MUTO Core Ontology"],
+        "other": {
+            "depiction": [{
+                    "identifier": "depiction",
+                    "language": "undefined",
+                    "value": "http://purl.org/muto/core/muto-compact.png",
+                    "type": "label"
+                }, {
+                    "identifier": "depiction",
+                    "language": "undefined",
+                    "value": "http://purl.org/muto/core/muto-UML.png",
+                    "type": "label"
+                }],
+            "homepage": [{
+                    "identifier": "homepage",
+                    "language": "undefined",
+                    "value": "http://purl.org/muto",
+                    "type": "label"
+                }]
+        }
+    },
+    "metrics": {
+        "classCount": 7,
+        "datatypeCount": 6,
+        "objectPropertyCount": 16,
+        "datatypePropertyCount": 6,
+        "propertyCount": 22,
+        "nodeCount": 13,
+        "axiomCount": 158,
+        "individualCount": 0
+    },
+    "class": [
+        {
+            "id": "class_project1",
+            "type": "owl:Class"
+        }, {
+            "id": "class_member1",
+            "type": "owl:Class"
+        }, {
+            "id": "class_member2",
+            "type": "owl:Class"
+        }, {
+            "id": "class_card1",
+            "type": "owl:Class"
+        }, {
+            "id": "class_space1",
+            "type": "owl:Class"
+        }
+    ],
+    "classAttribute": [
+        {
+            "id": "class_project1",
+            "label": {
+                "en": "Project",
+                "cz": "Projekt"
+            },
+            "comment": {
+                "en": "Test project class"
+            }
+        },
+        {
+            "id": "class_member1",
+            "label": {
+                "en": "Member",
+                "cz": "Clen"
+            },
+            "comment": {
+                "en": "Test member class"
+            }
+        },
+        {
+            "id": "class_member2",
+            "label": {
+                "en": "Member",
+                "cz": "Clen"
+            },
+            "comment": {
+                "en": "Test member class"
+            }
+        },
+        {
+            "id": "class_card1",
+            "label": {
+                "en": "Card",
+                "cz": "Karta"
+            },
+            "comment": {
+                "en": "Test card class"
+            }
+        },
+        {
+            "id": "class_space1",
+            "label": {
+                "en": "Space",
+                "cz": "Prostor"
+            },
+            "comment": {
+                "en": "Test space class"
+            }
+        }
+    ],
+    "datatype" : [
+        {
+            "id": "project1_datatype_id",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "project1_datatype_title",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "project1_datatype_description",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "project1_datatype_link",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "member1_datatype_id",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "member1_datatype_title",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "member1_datatype_description",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "member1_datatype_link",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "member2_datatype_id",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "member2_datatype_title",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "member2_datatype_description",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "member2_datatype_link",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "card1_datatype_id",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "card1_datatype_title",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "card1_datatype_description",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "card1_datatype_link",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "space1_datatype_id",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "space1_datatype_title",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "space1_datatype_description",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "space1_datatype_link",
+            "type": "rdfs:Datatype"
+        }
+    ],
+    "datatypeAttribute" : [
+        {
+            "id": "project1_datatype_id",
+            "label": {
+                "en": "integer"
+            }
+        },
+        {
+            "id": "project1_datatype_title",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "project1_datatype_description",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "project1_datatype_link",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "member1_datatype_id",
+            "label": {
+                "en": "integer"
+            }
+        },
+        {
+            "id": "member1_datatype_title",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "member1_datatype_description",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "member1_datatype_link",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "member2_datatype_id",
+            "label": {
+                "en": "integer"
+            }
+        },
+        {
+            "id": "member2_datatype_title",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "member2_datatype_description",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "member2_datatype_link",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "card1_datatype_id",
+            "label": {
+                "en": "integer"
+            }
+        },
+        {
+            "id": "card1_datatype_title",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "card1_datatype_description",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "card1_datatype_link",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "space1_datatype_id",
+            "label": {
+                "en": "integer"
+            }
+        },
+        {
+            "id": "space1_datatype_title",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "space1_datatype_description",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "space1_datatype_link",
+            "label": {
+                "en": "string"
+            }
+        }
+    ],
+    "property" : [
+        {
+            "id" : "property_project1_id",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_project1_title",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_project1_description",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_project1_link",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_member1_id",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_member1_title",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_member1_description",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_member1_link",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_member2_id",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_member2_title",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_member2_description",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_member2_link",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_card1_id",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_card1_title",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_card1_description",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_card1_link",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_space1_id",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_space1_title",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_space1_description",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_space1_link",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_project1_member1",
+            "type" : "owl:objectProperty"
+        },
+        {
+            "id" : "property_project1_member2",
+            "type" : "owl:objectProperty"
+        },
+        {
+            "id" : "property_project1_card1",
+            "type" : "owl:objectProperty"
+        },
+        {
+            "id" : "property_project1_space1",
+            "type" : "owl:objectProperty"
+        }
+    ],
+    "propertyAttribute": [
+        {
+            "id" : "property_project1_id",
+            "label": {
+                "en": "id"
+            },
+            "domain": "class_project1",
+            "range": "project1_datatype_id"
+        },
+        {
+            "id" : "property_project1_title",
+            "label": {
+                "en": "title"
+            },
+            "domain": "class_project1",
+            "range": "project1_datatype_title"
+        },
+        {
+            "id" : "property_project1_description",
+            "label": {
+                "en": "description"
+            },
+            "domain": "class_project1",
+            "range": "project1_datatype_description"
+        },
+        {
+            "id" : "property_project1_link",
+            "label": {
+                "en": "link"
+            },
+            "domain": "class_project1",
+            "range": "project1_datatype_link"
+        },
+        {
+            "id" : "property_member1_id",
+            "label": {
+                "en": "id"
+            },
+            "domain": "class_member1",
+            "range": "member1_datatype_id"
+        },
+        {
+            "id" : "property_member1_title",
+            "label": {
+                "en": "title"
+            },
+            "domain": "class_member1",
+            "range": "member1_datatype_title"
+        },
+        {
+            "id" : "property_member1_description",
+            "label": {
+                "en": "description"
+            },
+            "domain": "class_member1",
+            "range": "member1_datatype_description"
+        },
+        {
+            "id" : "property_member1_link",
+            "label": {
+                "en": "link"
+            },
+            "domain": "class_member1",
+            "range": "member1_datatype_link"
+        },
+        {
+            "id" : "property_member2_id",
+            "label": {
+                "en": "id"
+            },
+            "domain": "class_member2",
+            "range": "member2_datatype_id"
+        },
+        {
+            "id" : "property_member2_title",
+            "label": {
+                "en": "title"
+            },
+            "domain": "class_member2",
+            "range": "member2_datatype_title"
+        },
+        {
+            "id" : "property_member2_description",
+            "label": {
+                "en": "description"
+            },
+            "domain": "class_member2",
+            "range": "member2_datatype_description"
+        },
+        {
+            "id" : "property_member2_link",
+            "label": {
+                "en": "link"
+            },
+            "domain": "class_member2",
+            "range": "member2_datatype_link"
+        },
+        {
+            "id" : "property_card1_id",
+            "label": {
+                "en": "id"
+            },
+            "domain": "class_card1",
+            "range": "card1_datatype_id"
+        },
+        {
+            "id" : "property_card1_title",
+            "label": {
+                "en": "title"
+            },
+            "domain": "class_card1",
+            "range": "card1_datatype_title"
+        },
+        {
+            "id" : "property_card1_description",
+            "label": {
+                "en": "description"
+            },
+            "domain": "class_card1",
+            "range": "card1_datatype_description"
+        },
+        {
+            "id" : "property_card1_link",
+            "label": {
+                "en": "link"
+            },
+            "domain": "class_card1",
+            "range": "card1_datatype_link"
+        },
+        {
+            "id" : "property_space1_id",
+            "label": {
+                "en": "id"
+            },
+            "domain": "class_space1",
+            "range": "space1_datatype_id"
+        },
+        {
+            "id" : "property_space1_title",
+            "label": {
+                "en": "title"
+            },
+            "domain": "class_space1",
+            "range": "space1_datatype_title"
+        },
+        {
+            "id" : "property_space1_description",
+            "label": {
+                "en": "description"
+            },
+            "domain": "class_space1",
+            "range": "space1_datatype_description"
+        },
+        {
+            "id" : "property_space1_link",
+            "label": {
+                "en": "link"
+            },
+            "domain": "class_space1",
+            "range": "space1_datatype_link"
+        },
+        {
+            "id" : "property_project1_member1",
+            "label": {
+                "en": "hasMember"
+            },
+            "domain": "class_project1",
+            "range": "class_member1"
+        },
+        {
+            "id" : "property_project1_member2",
+            "label": {
+                "en": "hasMember"
+            },
+            "domain": "class_project1",
+            "range": "class_member2"
+        },
+        {
+            "id" : "property_project1_card1",
+            "label": {
+                "en": "hasCard"
+            },
+            "domain": "class_project1",
+            "range": "class_card1"
+        },
+        {
+            "id" : "property_project1_space1",
+            "label": {
+                "en": "belongsToSpace"
+            },
+            "domain": "class_project1",
+            "range": "class_space1"
+        }
+    ]
+}

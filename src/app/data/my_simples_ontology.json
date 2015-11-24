@@ -1,0 +1,163 @@
+{
+    "_comment": "Created by me, hand-made",
+    "namespace": [],
+    "header": {
+        "languages": ["cz", "en"],
+        "title": {
+            "undefined": "My own ontology file"
+        },
+        "version": "1.0",
+        "author": ["Michael Blaha"],
+        "description": {
+            "undefined": "The Modular and Unified Tagging Ontology (MUTO) is an ontology for tagging and folksonomies. It is based on a thorough review of earlier tagging ontologies and unifies core concepts in one consistent schema. It supports different forms of tagging, such as common, semantic, group, private, and automatic tagging, and is easily extensible."
+        },
+        "seeAlso": ["http://purl.org/muto/core#"],
+        "issued": ["2011-11-16"],
+        "license": ["http://creativecommons.org/licenses/by/3.0/"],
+        "rdfsLabel": ["MUTO Core Ontology"],
+        "other": {
+            "depiction": [{
+                    "identifier": "depiction",
+                    "language": "undefined",
+                    "value": "http://purl.org/muto/core/muto-compact.png",
+                    "type": "label"
+                }, {
+                    "identifier": "depiction",
+                    "language": "undefined",
+                    "value": "http://purl.org/muto/core/muto-UML.png",
+                    "type": "label"
+                }],
+            "homepage": [{
+                    "identifier": "homepage",
+                    "language": "undefined",
+                    "value": "http://purl.org/muto",
+                    "type": "label"
+                }]
+        }
+    },
+    "metrics": {
+        "classCount": 7,
+        "datatypeCount": 6,
+        "objectPropertyCount": 16,
+        "datatypePropertyCount": 6,
+        "propertyCount": 22,
+        "nodeCount": 13,
+        "axiomCount": 158,
+        "individualCount": 0
+    },
+    "class": [
+        {
+            "id": "class_project1",
+            "type": "owl:Class"
+        }, {
+            "id": "class_member1",
+            "type": "owl:Class"
+        }
+    ],
+    "classAttribute": [
+        {
+            "id": "class_project1",
+            "label": {
+                "en": "Project",
+                "cz": "Projekt"
+            },
+            "comment": {
+                "en": "Test project class"
+            }
+        },
+        {
+            "id": "class_member1",
+            "label": {
+                "en": "Member",
+                "cz": "Clen"
+            },
+            "comment": {
+                "en": "Test member class"
+            }
+        }
+    ],
+    "datatype" : [
+        {
+            "id": "project1_datatype_id",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "project1_datatype_title",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "member1_datatype_id",
+            "type": "rdfs:Datatype"
+        },
+        {
+            "id": "member1_datatype_title",
+            "type": "rdfs:Datatype"
+        }
+    ],
+    "datatypeAttribute" : [
+        {
+            "id": "project1_datatype_id",
+            "label": {
+                "en": "integer"
+            }
+        },
+        {
+            "id": "project1_datatype_title",
+            "label": {
+                "en": "string"
+            }
+        },
+        {
+            "id": "member1_datatype_id",
+            "label": {
+                "en": "integer"
+            }
+        },
+        {
+            "id": "member1_datatype_title",
+            "label": {
+                "en": "string"
+            }
+        }
+    ],
+    "property" : [
+        {
+            "id" : "property_project1_id",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_project1_title",
+            "type" : "owl:datatypeProperty"
+        },
+        {
+            "id" : "property_member1_id",
+            "type" : "owl:datatypeProperty"
+        }
+    ],
+    "propertyAttribute": [
+        {
+            "id" : "property_project1_id",
+            "label": {
+                "en": "id"
+            },
+            "domain": "class_project1",
+            "range": "project1_datatype_id"
+        },
+        {
+            "id" : "property_project1_title",
+            "label": {
+                "en": "title"
+            },
+            "domain": "class_project1",
+            "range": "project1_datatype_title"
+        },
+        {
+            "id" : "property_member1_id",
+            "label": {
+                "en": "id"
+            },
+            "domain": "class_member1",
+            "range": "member1_datatype_id"
+        }
+    ]
+}
