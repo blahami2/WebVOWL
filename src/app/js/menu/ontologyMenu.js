@@ -203,6 +203,7 @@ module.exports = function (loadOntologyFromText) {
 		}
 
 		var selectedFile = d3.select("#file-converter-input").property("files")[0];
+		console.log(selectedFile);
 		// No selection -> this was triggered by the iri. Unequal names -> reuploading another file
 		if (!selectedFile || (filename && (filename !== selectedFile.name))) {
 			loadOntologyFromText(undefined, undefined);

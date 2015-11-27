@@ -1,35 +1,34 @@
 module.exports = function () {
 
     var app = {},
-            graph = webvowl.graph(),
-            options = graph.graphOptions(),
-            languageTools = webvowl.util.languageTools(),
-            graphSelector = "#graph",
-            // Modules for the webvowl app
-            ontologyMenu,
-            exportMenu,
-            gravityMenu,
-            filterMenu,
-            modeMenu,
-            resetMenu,
-            pauseMenu,
-            sidebar = require("./sidebar")(graph),
-            setupableMenues,
-            // Graph modules
-            statistics = webvowl.modules.statistics(),
-            focuser = webvowl.modules.focuser(),
-            selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
-            datatypeFilter = webvowl.modules.datatypeFilter(),
-            subclassFilter = webvowl.modules.subclassFilter(),
-            disjointFilter = webvowl.modules.disjointFilter(),
-            nodeDegreeFilter = webvowl.modules.nodeDegreeFilter(),
-            setOperatorFilter = webvowl.modules.setOperatorFilter(),
-            nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(graph),
-            compactNotationSwitch = webvowl.modules.compactNotationSwitch(graph),
-            pickAndPin = webvowl.modules.pickAndPin();
+        graph = webvowl.graph(),
+        options = graph.graphOptions(),
+        languageTools = webvowl.util.languageTools(),
+        graphSelector = "#graph",
+    // Modules for the webvowl app
+        ontologyMenu,
+        exportMenu,
+        gravityMenu,
+        filterMenu,
+        modeMenu,
+        resetMenu,
+        pauseMenu,
+        sidebar = require("./sidebar")(graph),
+        setupableMenues,
+    // Graph modules
+        statistics = webvowl.modules.statistics(),
+        focuser = webvowl.modules.focuser(),
+        selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
+        datatypeFilter = webvowl.modules.datatypeFilter(),
+        subclassFilter = webvowl.modules.subclassFilter(),
+        disjointFilter = webvowl.modules.disjointFilter(),
+        nodeDegreeFilter = webvowl.modules.nodeDegreeFilter(),
+        setOperatorFilter = webvowl.modules.setOperatorFilter(),
+        nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(graph),
+        compactNotationSwitch = webvowl.modules.compactNotationSwitch(graph),
+        pickAndPin = webvowl.modules.pickAndPin();
 
     app.initialize = function () {
-
 
 
         options.graphContainerSelector(graphSelector);
@@ -57,14 +56,21 @@ module.exports = function () {
         d3.select(window).on("resize", adjustSize);
 
         // setup all bottom bar modules
-        setupableMenues = [exportMenu, gravityMenu, filterMenu, modeMenu, resetMenu, pauseMenu, sidebar];
+        setupableMenues = [exportMenu, gravityMenu, filterMenu, modeMenu, resetMenu, pauseMenu, sidebar, ontologyMenu];
         setupableMenues.forEach(function (menu) {
             menu.setup();
         });
 
         graph.start();
-        mos = require("./mockOntologySupplier")(loadOntologyFromText);
-        mos.load();
+        //mos = require("./mockOntologySupplier")(loadOntologyFromText);
+        //mos.load();
+
+
+        loadData();
+
+        //var reader = new FileReader();
+        //var mockedJsonString = reader.readAsText("../data/mocked.json");
+        //console.log(jsonString);
         adjustSize();
 
 
@@ -72,9 +78,10 @@ module.exports = function () {
 
     function loadOntologyFromText(jsonText, filename, alternativeFilename) {
         pauseMenu.reset();
+        //console.log(jsonText);
         var data;
         if (jsonText) {
-            
+
             data = JSON.parse(jsonText);
 
             if (!filename) {
@@ -101,17 +108,38 @@ module.exports = function () {
 
     function adjustSize() {
         var graphContainer = d3.select(graphSelector),
-                svg = graphContainer.select("svg"),
-                height = window.innerHeight - 40,
-                width = window.innerWidth - (window.innerWidth * 0.22);
+            svg = graphContainer.select("svg"),
+            height = window.innerHeight - 40,
+            width = window.innerWidth - (window.innerWidth * 0.22);
 
         graphContainer.style("height", height + "px");
         svg.attr("width", width)
-                .attr("height", height);
+            .attr("height", height);
 
         options.width(width)
-                .height(height);
+            .height(height);
         graph.updateStyle();
+    }
+
+    function loadData(callback) {
+        request = new XMLHttpRequest();
+        request.open('GET', 'http://localhost:8000/data/mocked.json', true);
+
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
+                
+                var loadedJsonData = JSON.parse(request.responseText);
+                loadOntologyFromText(request.responseText,undefined);
+            } else {
+
+            }
+        };
+
+        request.onerror = function () {
+        };
+
+        request.send();
+
     }
 
     return app;

@@ -1,0 +1,61 @@
+{
+  "_comment": "this is comment",
+  "namespace": [],
+  "header": {
+    "languages": [
+      "en"
+    ],
+    "title": {
+      "en": "English title"
+    },
+    "iri": "http://not.working.iri",
+    "version": "1.0",
+    "author": [
+      "Michael Blaha"
+    ],
+    "description": {
+      "en": "This is english description"
+    },
+    "seeAlso": [
+      "nothing"
+    ],
+    "issued": [
+      "2015-11-24"
+    ],
+    "license": [
+      "none"
+    ],
+    "rdfsLabel": [
+      "My Ontology"
+    ],
+    "others": {}
+  },
+  "metrics": {
+    "classCount": 0,
+    "datatypeCount": 0,
+    "objectPropertyCount": 16,
+    "datatypePropertyCount": 6,
+    "propertyCount": 22,
+    "nodeCount": 13,
+    "axiomCount": 158,
+    "individualCount": 0
+  },
+  "class": [
+    {
+      "id": "class_Project_#2",
+      "type": "owl:Class"
+    }
+  ],
+  "classAttribute": [
+    {
+      "id": "class_Project_#2",
+      "label": "Project_#2",
+      "comment": "Description_#2",
+      "iri": "Link_#2"
+    }
+  ],
+  "datatype": [],
+  "datatypeAttribute": [],
+  "property": [],
+  "propertyAttribute": [  ]
+}

@@ -25,7 +25,10 @@ module.exports = function (graph, resettableModules) {
 		options.charge(untouchedOptions.charge());
 		options.gravity(untouchedOptions.gravity());
 		options.linkStrength(untouchedOptions.linkStrength());
-		graph.reset();
+		//graph.reset();
+		//graph.reload();
+		graph.loadChilds();
+
 
 		resettableModules.forEach(function (module) {
 			module.reset();

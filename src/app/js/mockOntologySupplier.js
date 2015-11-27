@@ -100,7 +100,7 @@ module.exports = function (loadOntologyFromText) {
                 range: "class_" + relations[i].relationEntity.name + relations[i].relationEntity.value.id
             });
         }
-//        alert(JSON.stringify(json));
+        //console.log(JSON.stringify(json));
         loadOntologyFromText(JSON.stringify(json), undefined);
     };
 

@@ -236,6 +236,7 @@ module.exports = function (graphContainerSelector) {
 	 * Empties the last graph container and draws a new one with respect to the
 	 * value the graph container selector has.
 	 */
+
 	function redrawGraph() {
 		remove();
 
