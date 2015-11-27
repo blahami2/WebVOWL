@@ -124,7 +124,7 @@ module.exports = function () {
     }
 
     function loadDataFrom(url, callback) {
-        request = new XMLHttpRequest();
+        var request = new XMLHttpRequest();
         request.open('GET', url, true);
 
         request.onload = function () {
