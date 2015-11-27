@@ -66,7 +66,7 @@ module.exports = function () {
         //mos.load();
 
 
-        loadData(function (data) {
+        loadDataFrom('http://localhost:8000/data/mocked.json', function (data) {
             loadOntologyFromText(data, undefined);
         });
 
@@ -123,9 +123,9 @@ module.exports = function () {
         graph.updateStyle();
     }
 
-    function loadData(callback) {
+    function loadDataFrom(url, callback) {
         request = new XMLHttpRequest();
-        request.open('GET', 'http://localhost:8000/data/mocked.json', true);
+        request.open('GET', url, true);
 
         request.onload = function () {
             if (request.status >= 200 && request.status < 400) {
