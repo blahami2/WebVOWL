@@ -142,7 +142,7 @@ module.exports = function () {
         return Math.floor(Math.random() * (to - from + 1) + from);
     }
 
-    mockRelationSupplier.getProject = function (project) {
+    mockRelationSupplier.getProjectDeprecated = function (project) {
         var p;
         for (i = 0; i < db.projects.length; i++) {
             if (db.projects[i].id === project.id) {
@@ -195,9 +195,86 @@ module.exports = function () {
         }
         return relations;
     };
+    
+    mockRelationSupplier.getProjectRelations = function (projectId){
+        var relations = [];
+        for (i = 0; i < 3; i++) {
+            relations.push({
+                'relationName': 'projectHasMember',
+                'relationEntity': {
+                    'name': 'User',
+                    'value': {
+                        'id': "User#" + i,
+                        'title': "User#" + i,
+                        'description': "User#" + i + "_description",
+                        'link': "User#" + i + "_link"
+                    }
+                }
+            });
+        }
+        for (i = 0; i < 2; i++) {
+            relations.push({
+                'relationName': 'projectHasCard',
+                'relationEntity': {
+                    'name': 'Card',
+                    'value': {
+                        'id': "Card#" + i,
+                        'title': "Card#" + i,
+                        'description': "Card#" + i + "_description",
+                        'link': "Card#" + i + "_link"
+                    }
+                }
+            });
+        }
+        for (i = 0; i < 1; i++) {
+            relations.push({
+                'relationName': 'projectBelongsToSpace',
+                'relationEntity': {
+                    'name': 'Space',
+                    'value': {
+                        'id': "Space#" + i,
+                        'title': "Space#" + i,
+                        'description': "Space#" + i + "_description",
+                        'link': "Space#" + i + "_link"
+                    }
+                }
+            });
+        }
+        return relations;
+    }
 
-    mockRelationSupplier.getUser = function (userIndex) {
-        return db.users[userIndex];
+    mockRelationSupplier.getUserRelations = function (userId) {
+        db.users.forEach(function (user) {
+            if (user.id === userId) {
+                var relations = [];
+                user.projects.forEach(function (project) {
+                    relations.push({
+                        'relationName': 'projectHasMember',
+                        'relationEntity': {
+                            'name': 'User',
+                            'value': {
+                                'id': p.users[i].id,
+                                'title': p.users[i].title,
+                                'description': p.users[i].description,
+                                'link': p.users[i].link
+                            }
+                        }
+                    });
+                });
+                return {
+                    'relationName': 'projectHasMember',
+                    'relationEntity': {
+                        'name': 'User',
+                        'value': {
+                            'id': p.users[i].id,
+                            'title': p.users[i].title,
+                            'description': p.users[i].description,
+                            'link': p.users[i].link
+                        }
+                    }
+                };
+            }
+        });
     };
 
     mockRelationSupplier.getProjectCustom = function (project) {

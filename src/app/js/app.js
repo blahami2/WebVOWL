@@ -63,10 +63,31 @@ module.exports = function () {
         });
 
         graph.start();
-        mos = require("./mockOntologySupplier")(loadOntologyFromText);
-        mos.load();
+        mos = require("./ontologyUtils")(loadOntologyFromText);
+        mrs = require("./mockRelationSupplier");
+        baseRelation = {
+                'relationName': 'projectRelation',
+                'relationEntity': {
+                    'name': 'Project',
+                    'value': {
+                        'id': "Project#1",
+                        'title': "Project#1",
+                        'description': "Project#1_description",
+                        'link': "Project#1_link"
+                    }
+                }
+            };
+        dataObject = mos.loadDefault(baseRelation);
+
+        options.data(dataObject);
+        graph.reload();
+
         adjustSize();
 
+        d3.select("#reset-button").on("click", function () {
+            mos.expand(dataObject, baseRelation );
+            graph.reload();
+        });
 
     };
 
@@ -74,7 +95,7 @@ module.exports = function () {
         pauseMenu.reset();
         var data;
         if (jsonText) {
-            
+
             data = JSON.parse(jsonText);
 
             if (!filename) {
