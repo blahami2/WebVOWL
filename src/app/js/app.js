@@ -66,7 +66,9 @@ module.exports = function () {
         //mos.load();
 
 
-        loadData();
+        loadData(function (data) {
+            loadOntologyFromText(data, undefined);
+        });
 
         //var reader = new FileReader();
         //var mockedJsonString = reader.readAsText("../data/mocked.json");
@@ -127,9 +129,7 @@ module.exports = function () {
 
         request.onload = function () {
             if (request.status >= 200 && request.status < 400) {
-                
-                var loadedJsonData = JSON.parse(request.responseText);
-                loadOntologyFromText(request.responseText,undefined);
+                callback(request.responseText);
             } else {
 
             }
