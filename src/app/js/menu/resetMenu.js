@@ -16,10 +16,11 @@ module.exports = function (graph, resettableModules) {
 	 * Adds the reset button to the website.
 	 */
 	resetMenu.setup = function () {
-		d3.select("#reset-button").on("click", resetGraph);
+//		d3.select("#reset-button").on("click", resetGraph);
 	};
 
 	function resetGraph() {
+
 		options.classDistance(untouchedOptions.classDistance());
 		options.datatypeDistance(untouchedOptions.datatypeDistance());
 		options.charge(untouchedOptions.charge());
